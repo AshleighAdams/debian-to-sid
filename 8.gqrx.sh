@@ -55,8 +55,7 @@ Categories=Audio;Education;HamRadio;
 MimeType=application/gqrx;
 Icon=gqrx" > /usr/share/applications/gqrx.desktop'
 	
-	wget http://kateadams.eu/utilities-system-monitor.svg
-	sudo mv utilities-system-monitor.svg /usr/share/pixmaps/gqrx.svg
+	sudo cp icons/scope.png /usr/share/pixmaps/gqrx.svg
 	
 	cd $from
 	echo "3" > $status
