@@ -3,25 +3,37 @@ if [ ! -f ./status/1 ]; then
 fi
 
 if [ `cat ./status/1` == "0" ]; then
+	sudo apt-get install zenity
+	mirror=`zenity --height=500 --width=700 --title="Select a mirror" --list --column="Mirror" \`curl -s https://www.debian.org/mirror/official | egrep -o "http://ftp.+debian/"\``
+
+	# if cancel pushed, exit
+	[ $? == "1" ] && exit 1
+	
 	echo "making backup of sources.list"
-	sudo cp /etc/apt/sources.list /etc/apt/sources.list.original
-	cat /etc/apt/sources.list | grep "wheezy main" > /tmp/sources.list
+	#sudo cp /etc/apt/sources.list /etc/apt/sources.list.original
 
-	echo "adding unstable"
-	echo "# Unstable" > /tmp/sources.list.final
-	cat /tmp/sources.list | sed "s/wheezy/unstable/g" > /tmp/sources.list.unstable
-	cat /tmp/sources.list.unstable >> /tmp/sources.list.final
+	cat 1.source.list.template | sed "s|MIRROR|$mirror|g" > /tmp/sources.list
+	sudo cp /tmp/sources.list /etc/apt/sources.list
+	
+	#/etc/apt/sources.list
+	
+	#cat /etc/apt/sources.list | grep "wheezy main" > /tmp/sources.list
 
-	echo "adding experimental"
-	echo "# Experimental" >> /tmp/sources.list.final
-	cat /tmp/sources.list | sed "s/wheezy/experimental/g" > /tmp/sources.list.experimental
-	cat /tmp/sources.list.experimental >> /tmp/sources.list.final
+	#echo "adding unstable"
+	#echo "# Unstable" > /tmp/sources.list.final
+	#cat /tmp/sources.list | sed "s/wheezy/unstable/g" > /tmp/sources.list.unstable
+	#cat /tmp/sources.list.unstable >> /tmp/sources.list.final
 
-	echo "adding none-free, contrib, and others"
-	cat /tmp/sources.list.final | sed "s/ main/ main none-free contrib/g" > /tmp/sources.list.final.1
+	#echo "adding experimental"
+	#echo "# Experimental" >> /tmp/sources.list.final
+	#cat /tmp/sources.list | sed "s/wheezy/experimental/g" > /tmp/sources.list.experimental
+	#cat /tmp/sources.list.experimental >> /tmp/sources.list.final
 
-	echo "installing new sources.list"
-	sudo cp /tmp/sources.list.final.1 /etc/apt/sources.list
+	#echo "adding none-free, contrib, and others"
+	#cat /tmp/sources.list.final | sed "s/ main/ main none-free contrib/g" > /tmp/sources.list.final.1
+
+	#echo "installing new sources.list"
+	#sudo cp /tmp/sources.list.final.1 /etc/apt/sources.list
 
 	echo "1" > ./status/1
 fi
