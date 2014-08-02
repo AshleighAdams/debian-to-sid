@@ -4,7 +4,7 @@ if [ ! -f $status ]; then
 fi
 
 if [ `cat $status` == "0" ]; then
-	sudo apt-get install -y chromium quassel-core quassel-client pidgin pidgin-otr gnome-shell-extension-weather build-essential monodevelop vlc nemo git git-gui qbittorrent && echo "1" > $status
+	sudo apt-get install -y chromium quassel-core quassel-client pidgin pidgin-otr gnome-shell-extension-weather build-essential monodevelop vlc git git-gui qbittorrent && echo "1" > $status
 	xdg-mime default qBittorrent.desktop x-scheme-handler/magnet
 fi
 
@@ -25,20 +25,14 @@ if [ `cat $status` == "1" ]; then
 fi
 
 if [ `cat $status` == "2" ]; then
-	echo "setting nemo as default file manager"
-	xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
-	echo "3" > $status
-fi
-
-if [ `cat $status` == "3" ]; then
 	echo "installing Dropbox"
 	wget https://www.dropbox.com/download?dl=packages/debian/dropbox_1.6.0_amd64.deb
 	sudo dpkg -i *dropbox_1.6.0_amd64.deb
 	sudo apt-get -f install
 	rm *dropbox_1.6.0_amd64.deb
-	echo "4" > $status
+	echo "3" > $status
 fi
 
-if [ `cat $status` == "4" ]; then
+if [ `cat $status` == "3" ]; then
 	echo "done"
 fi
