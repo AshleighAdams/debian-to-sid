@@ -37,6 +37,6 @@ if [ `cat $status` == "0" ]; then
 fi
 
 if [ `cat $status` == "0" ]; then
-	echo "place 'export GNOME_SHELL_JS=/usr/share/gnome-shell/js' in your ~/.gnomerc"
+	echo "place 'GNOME_SHELL_JS=/usr/share/gnome-shell/js' in your ~/.profile"
 	echo "done"
 fi
