@@ -3,7 +3,7 @@ if [ ! -f ./status/1 ]; then
 fi
 
 if [ `cat ./status/1` == "0" ]; then
-	sudo apt-get install zenity
+	sudo apt-get install zenity curl
 	mirror=`zenity --height=500 --width=700 --title="Select a mirror" --list --column="Mirror" \`curl -s https://www.debian.org/mirror/official | egrep -o "http://ftp.+debian/"\``
 
 	# if cancel pushed, exit
