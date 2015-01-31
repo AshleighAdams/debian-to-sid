@@ -1,3 +1,6 @@
+# Fixes powermizer
+## Option "RegistryDwords" "PowerMizerEnable=0x1; PerfLevelSrc=0x3333; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
+
 if [ ! -f ./status/2 ]; then
 	echo "0" > ./status/2
 fi
