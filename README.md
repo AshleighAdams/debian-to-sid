@@ -1,20 +1,11 @@
 debian-to-sid
 =============
 
-## 1 Upgrades the system to Sid.
+Some scripts that are essential to me after a fresh Debian install.
 
-`/etc/apt/sources.list`:
-```
-## Unstable
-deb http://ftp.uk.debian.org/debian/ unstable main non-free contrib
-deb-src http://ftp.uk.debian.org/debian/ unstable main non-free contrib
-## Experimental
-deb http://ftp.uk.debian.org/debian/ experimental main non-free contrib
-deb-src http://ftp.uk.debian.org/debian/ experimental main non-free contrib
+## 1 Upgrades the system to unstable.
 
-deb http://www.deb-multimedia.org sid main non-free
-deb-src http://www.deb-multimedia.org sid main
-```
+Use the http://httpredir.debian.org/ mirror, alongside upgrading to the unstable repos.
 
 ## 2 Installs Nvidia's drivers
 
@@ -24,12 +15,32 @@ deb-src http://www.deb-multimedia.org sid main
 
 ## 5 Installs a Flash player for Chromium
 
-## 6 Fix the size of Gnome's message tray
-
 ## 7 Install Guake
 
 A source/quake like terminal, sets key combo to Alt+`
 
-## 8 Compile my version of Gqrx
-
 ## 9 Apply a patch to Nautilus for the old search behaviour
+
+Patch the source (`apt-get source nautilus`) to re-add type-ahead search.
+
+## 10 Google API Keys
+
+Install Debian's old API keys (not added by default anymore).
+
+## 11.dark-gedit.sh
+
+## 12 Apt completion
+
+Add apt-get completion to `apt` CLI.
+
+## 13 Dark terminal
+
+Patch the source to gnome-terminal to re-add the dark option.
+
+## 14 Pulse flat volumes
+
+Decouple application volumes and master volumes.
+
+## 15 Gnome SSD
+
+Removes the bottom bar on SSD apps.
