@@ -4,7 +4,7 @@ if [ ! -f $status ]; then
 fi
 
 if [ `cat $status` == "0" ]; then
-	sudo apt-get install -y chromium quassel-core quassel-client pidgin pidgin-otr gnome-shell-extension-weather build-essential monodevelop vlc git git-gui qbittorrent && echo "1" > $status
+	sudo apt-get install -y chromium quassel-core quassel-client pidgin pidgin-otr gnome-shell-extension-weather build-essential monodevelop vlc git git-gui qbittorrent gqrx-sdr && echo "1" > $status
 	xdg-mime default qBittorrent.desktop x-scheme-handler/magnet
 fi
 
