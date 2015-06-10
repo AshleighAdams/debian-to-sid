@@ -43,4 +43,4 @@ Decouple application volumes and master volumes.
 
 ## 15 Gnome SSD
 
-Removes the bottom bar on SSD apps.
+Removes the bottom bar on Server-Side Decoration apps.
