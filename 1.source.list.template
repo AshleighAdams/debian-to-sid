@@ -1,11 +1,12 @@
 # Unstable
-deb MIRROR unstable main non-free contrib
-deb-src MIRROR unstable main non-free contrib
+deb http://localhost:9977/httpredir.debian.org/debian/ unstable main non-free contrib
+deb-src http://localhost:9977/httpredir.debian.org/debian/ unstable main non-free contrib
 
 # Experimental
-deb MIRROR experimental main non-free contrib
-deb-src MIRROR experimental main non-free contrib
+#deb http://localhost:9977/httpredir.debian.org/debian/ experimental main non-free contrib
+#deb-src http://localhost:9977/httpredir.debian.org/debian/ experimental main non-free contrib
 
 # Multimedia
-deb http://www.deb-multimedia.org sid main non-free
-deb-src http://www.deb-multimedia.org sid main
+#deb http://www.deb-multimedia.org sid main non-free
+#deb-src http://www.deb-multimedia.org sid main
+
