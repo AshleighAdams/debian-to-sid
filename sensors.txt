@@ -1,0 +1,3 @@
+Inside /etc/default/grub:
+
+GRUB_CMDLINE_LINUX_DEFAULT="acpi_enforce_resources=lax"
