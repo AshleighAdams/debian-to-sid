@@ -6,7 +6,7 @@ sudo rm -rf /tmp/naut # make sure it's gone!
 
 
 mkdir /tmp/naut
-cp  9.interactive_search.patch /tmp/naut/interactive_search.patch
+cp  09.interactive_search.patch /tmp/naut/interactive_search.patch
 
 cd /tmp/naut/
 apt-get source nautilus
