@@ -3,10 +3,6 @@ if [ ! -f ./status/1 ]; then
 fi
 
 if [ `cat ./status/1` == "0" ]; then
-	sudo apt install apt-p2p && echo "0.5" > ./status/1
-fi
-
-if [ `cat ./status/1` == "0.5" ]; then
 	sudo cp 01.source.list.template /etc/apt/sources.list
 	echo "1" > ./status/1
 fi

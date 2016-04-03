@@ -1,6 +1,6 @@
 # Unstable
-deb http://localhost:9977/httpredir.debian.org/debian/ unstable main non-free contrib
-deb-src http://localhost:9977/httpredir.debian.org/debian/ unstable main non-free contrib
+deb http://httpredir.debian.org/debian/ unstable main non-free contrib
+deb-src http://httpredir.debian.org/debian/ unstable main non-free contrib
 
 # Experimental
 #deb http://localhost:9977/httpredir.debian.org/debian/ experimental main non-free contrib
