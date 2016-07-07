@@ -4,7 +4,7 @@ if [ ! -f $status ]; then
 fi
 
 if [ `cat $status` == "0" ]; then
-	wget https://raw.github.com/KateAdams/.bashrc/master/.bashrc
+	wget https://raw.github.com/AshleighAdams/.bashrc/master/.bashrc
 	cp ~/.bashrc .bashrc.original
 	mv .bashrc ~/.bashrc
 	sudo apt-get install trash-cli
