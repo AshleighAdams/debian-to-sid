@@ -39,6 +39,21 @@ pushd AdwaitaAccent/gtk-3.0
 	sed -i "s|resource:///org/gtk/libgtk/theme/Adwaita/||g" gtk.css gtk-dark.css
 popd
 
+
+echo extracting gnome-shell theme
+
+gst=/usr/share/gnome-shell/gnome-shell-theme.gresource
+mkdir -p AdwaitaAccent/gnome-shell/
+for r in `gresource list $gst`; do
+	gresource extract $gst $r > "AdwaitaAccent/gnome-shell/$workdir${r/#\/org\/gnome\/shell\/theme/}"
+done
+
+#"215d9c" to "f43030"; "256ab1" to "bd3232"; and "rgba(33, 93, 156," to "rgba(155, 33, 33,")
+
+sed -i "s/215d9c/76219C/g" AdwaitaAccent/gnome-shell/gnome-shell.css
+sed -i "s/rgba(33, 93, 156/rgba(118, 33, 156/g" AdwaitaAccent/gnome-shell/gnome-shell.css
+sed -i "s/256ab1/8D25B1/g" AdwaitaAccent/gnome-shell/gnome-shell.css
+
 echo installing files
 
 THEME_LOCATION=~/.themes # ~/.local/share/themes in later gtk versions, but 2 needs it here
