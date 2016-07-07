@@ -2,8 +2,9 @@
 
 set -e
 
-#sudo apt install ruby-full
-#sudo gem install sass
+sudo apt install ruby-full
+sudo gem install sass
+gsettings set org.gnome.desktop.interface gtk-color-scheme "selected_bg_color:#bb22ff;"
 
 tmp="$(pwd)/.tmp.21"
 
@@ -37,6 +38,13 @@ pushd AdwaitaAccent/gtk-3.0
 	sass --update --sourcemap=none .
 	echo "fixing resource"
 	sed -i "s|resource:///org/gtk/libgtk/theme/Adwaita/||g" gtk.css gtk-dark.css
+	
+	# add support for specific apps to take on the Adwaita theme
+	echo '@import url("resource:///org/gnome/builder/theme/Adwaita-shared.css");' >> gtk.css
+	echo '@import url("resource:///org/gnome/builder/theme/Adwaita-shared.css");' >> gtk-dark.css
+	
+	echo '@import url("resource:///org/gnome/gedit/css/gedit.adwaita.css");' >> gtk.css
+	echo '@import url("resource:///org/gnome/gedit/css/gedit.adwaita.css");' >> gtk-dark.css
 popd
 
 
@@ -53,6 +61,9 @@ done
 sed -i "s/215d9c/76219C/g" AdwaitaAccent/gnome-shell/gnome-shell.css
 sed -i "s/rgba(33, 93, 156/rgba(118, 33, 156/g" AdwaitaAccent/gnome-shell/gnome-shell.css
 sed -i "s/256ab1/8D25B1/g" AdwaitaAccent/gnome-shell/gnome-shell.css
+#sed -i 's/#panel {\
+#  background-color: black;/#panel {\
+#  background-color: transparent;/g' AdwaitaAccent/gnome-shell/gnome-shell.css
 
 echo installing files
 
